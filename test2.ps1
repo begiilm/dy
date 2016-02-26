@@ -1,0 +1,1 @@
+echo test2 >f:\test2.txt
