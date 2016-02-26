@@ -1,1 +1,1 @@
-echo nihao > f:\testok2.txt
+echo nihaoameizi > f:\testok2.txt
