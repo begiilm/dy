@@ -1,1 +1,0 @@
-echo nihao > f:\testok2.txt
